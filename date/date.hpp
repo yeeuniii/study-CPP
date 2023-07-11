@@ -8,6 +8,9 @@ class Date
 	int	day_;
 
 	public:
+		Date();
+		Date(int year, int month, int date);
+
 		void	setDate(int year, int month, int date);
 		void	addDay(int inc);
 		void	addMonth(int inc);

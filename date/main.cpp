@@ -1,16 +1,22 @@
 #include "date.hpp"
+#include <iostream>
 
 int	main(void)
 {
-	Date date;
+	Date day(2023, 7, 11);
+	Date day1;
 
-	date.setDate(2023, 7, 11);
-	date.showDate();
-	date.addDay(3);
-	date.showDate();
-	date.addMonth(3);
-	date.showDate();
-	date.addYear(3);
-	date.showDate();
+	day.showDate();
+	day1.showDate();
+
+	day.addDay(3);
+	day.showDate();
+	day.addMonth(3);
+	day.showDate();
+	day.addYear(3);
+	day.showDate();
+
+	std::cout << "2023년 2월 : " << day.getCurrentMonthTotalDays(2023, 2) << std::endl;
+	std::cout << "2024년 2월 : " << day.getCurrentMonthTotalDays(2024, 2) << std::endl;
 	return (0);
 }

@@ -1,5 +1,23 @@
 #include "date.hpp"
 #include <iostream>
+#include <ctime>
+
+Date::Date()
+{
+	time_t		timer = time(NULL);
+	struct tm	*t = localtime(&timer);
+
+	this->year_ = t->tm_year + 1900;
+	this->month_ = t->tm_mon + 1;
+	this->day_ = t->tm_mday;
+}
+
+Date::Date(int year, int month, int date)
+{
+	this->year_ = year;
+	this->month_ = month;
+	this->day_ = date;
+}
 
 void	Date::setDate(int year, int month, int date)
 {
@@ -28,7 +46,7 @@ int	isLeapYear(int year)
 	return (year % 4 == 0 && year % 100);
 }
 
-int	Date::getCurrentMonthTotaldays(int year, int month)
+int	Date::getCurrentMonthTotalDays(int year, int month)
 {
 	switch (month)
 	{
