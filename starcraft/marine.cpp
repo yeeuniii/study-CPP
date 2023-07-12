@@ -1,5 +1,6 @@
 #include "marine.hpp"
 #include <iostream>
+#include <string>
 
 Marine::Marine()
 {
@@ -8,6 +9,7 @@ Marine::Marine()
 	this->coord_y = 0;
 	this->damage = 5;
 	this->is_dead = false;
+	this->name = 0;
 }
 
 Marine::Marine(int x, int y)
@@ -17,6 +19,28 @@ Marine::Marine(int x, int y)
 	this->coord_y = y;
 	this->damage = 5;
 	this->is_dead = false;
+	this->name = 0;
+}
+
+Marine::Marine(int x, int y, const char *marine_name)
+{
+	this->hp = 50;
+	this->coord_x = x;
+	this->coord_y = y;
+	this->damage = 5;
+	this->is_dead = false;
+	this->name = new char[strlen(marine_name) + 1];
+	strcpy(this->name, marine_name);
+}
+
+Marine::~Marine()
+{
+	if (this->name)
+	{
+		std::cout << this->name << " ";
+		delete[] this->name;
+	}
+	std::cout << "소멸자 호출" << std::endl;
 }
 
 int	Marine::attack()
@@ -39,7 +63,7 @@ void	Marine::move(int x, int y)
 
 void	Marine::show_status()
 {
-	std::cout << "*** Marine ***" << std::endl;
+	std::cout << "*** Marine : " << this->name << " ***" << std::endl;
 	std::cout << "Location : ( " << this->coord_x << ", " << this->coord_y << " )" << std::endl;
 	std::cout << "HP : " << this->hp << std::endl;
 }

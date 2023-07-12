@@ -1,17 +1,31 @@
 #include "marine.hpp"
 #include <iostream>
 
+void	leaks()
+{
+	system("leaks a.out");
+}
+
 int	main(void)
 {
-	Marine marine1(2, 3);
-	Marine marine2(3, 5);
+	Marine *marines[100];
 
-	marine1.show_status();
-	marine2.show_status();
+	atexit(leaks);
+	marines[0] = new Marine(2, 3, "marine1");
+	marines[1] = new Marine(3, 5, "marine2");
+	marines[2] = new Marine(3, 5);
 
+	marines[0]->show_status();	
+	marines[1]->show_status();	
+	
 	std::cout << std::endl << "marine1 attack marine2!" << std::endl;
-	marine2.be_attacked(marine1.attack());
+	marines[1]->be_attacked(marines[0]->attack());
 
-	marine1.show_status();
+	marines[0]->show_status();	
+	marines[1]->show_status();	
+
+	delete	marines[0];
+	delete	marines[1];
+	delete	marines[2];
 	return 0;
 }

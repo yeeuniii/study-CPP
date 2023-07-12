@@ -9,10 +9,13 @@ class Marine
 		int		coord_y;
 		int		damage;
 		bool	is_dead;
-	
+		char	*name;
+
 	public:
 		Marine();
 		Marine(int x, int y);
+		Marine(int x, int y, const char *marine_name);
+		~Marine();
 
 		int		attack();
 		void	be_attacked(int damage_earn);
