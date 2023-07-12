@@ -2,15 +2,17 @@
 #include <iostream>
 #include <string>
 
-Marine::Marine()
-{
-	this->hp = 50;
-	this->coord_x = 0;
-	this->coord_y = 0;
-	this->damage = 5;
-	this->is_dead = false;
-	this->name = 0;
-}
+Marine::Marine() : hp(50), coord_x(0), coord_y(0), damage(5), is_dead(false), name(0) {}
+
+//Marine::Marine()
+//{
+//	this->hp = 50;
+//	this->coord_x = 0;
+//	this->coord_y = 0;
+//	this->damage = 5;
+//	this->is_dead = false;
+//	this->name = 0;
+//}
 
 Marine::Marine(int x, int y)
 {
@@ -63,7 +65,10 @@ void	Marine::move(int x, int y)
 
 void	Marine::show_status()
 {
-	std::cout << "*** Marine : " << this->name << " ***" << std::endl;
+	std::cout << "*** Marine";
+	if (this->name)
+		std::cout << " : " << this->name;
+	std::cout << " ***" << std::endl;
 	std::cout << "Location : ( " << this->coord_x << ", " << this->coord_y << " )" << std::endl;
 	std::cout << "HP : " << this->hp << std::endl;
 }
