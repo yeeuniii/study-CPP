@@ -3,6 +3,7 @@
 
 class Marine
 {
+	static int total;
 	private:
 		int		hp;
 		int		coord_x;
@@ -10,7 +11,7 @@ class Marine
 		int		damage;
 		bool	is_dead;
 		char	*name;
-
+		
 	public:
 		Marine();
 		Marine(int x, int y);
@@ -22,6 +23,7 @@ class Marine
 		void	move(int x, int y);
 
 		void	show_status();
+		static void	show_total_marine();
 };
 
 #endif

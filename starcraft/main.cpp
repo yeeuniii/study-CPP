@@ -10,13 +10,14 @@ int	main(void)
 {
 	Marine *marines[100];
 
-	atexit(leaks);
+//	atexit(leaks);
 	marines[0] = new Marine(2, 3, "marine1");
 	marines[1] = new Marine(3, 5, "marine2");
-	marines[2] = new Marine;
 
 	marines[0]->show_status();	
 	marines[1]->show_status();	
+	
+	marines[2] = new Marine;
 	marines[2]->show_status();
 
 	std::cout << std::endl << "marine1 attack marine2!" << std::endl;
@@ -24,6 +25,9 @@ int	main(void)
 
 	marines[0]->show_status();	
 	marines[1]->show_status();	
+
+	std::cout << std::endl;
+	Marine::show_total_marine();
 
 	delete	marines[0];
 	delete	marines[1];
