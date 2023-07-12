@@ -18,7 +18,7 @@ class Marine
 		Marine(int x, int y, const char *marine_name);
 		~Marine();
 
-		int		attack();
+		int		attack() const;
 		void	be_attacked(int damage_earn);
 		void	move(int x, int y);
 

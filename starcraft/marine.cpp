@@ -54,7 +54,7 @@ Marine::~Marine()
 	std::cout << "소멸자 호출" << std::endl;
 }
 
-int	Marine::attack()
+int	Marine::attack() const
 {
 	return this->damage;
 }
