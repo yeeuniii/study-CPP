@@ -7,7 +7,11 @@ class	Point
 	int	y;
 
 	public:
-	 Point(int pos_x, int pos_y);
-}
+		Point(int pos_x, int pos_y);
+		Point(const Point &point);
+
+		const int&	getX() const;
+		const int&	getY() const;
+};
 
 #endif
